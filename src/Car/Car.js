@@ -1,36 +1,58 @@
 import React from 'react';
-import Radium from 'radium';
-import classes from './Car.css';
+//import Radium from 'radium';
+import './Car.css';
 
 class Car extends React.Component {
 
     componentWillReceiveProps(nextProps) {
-
+      console.log('Car componentWillReceiveProps', nextProps)
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-
+        console.log('Car shouldComponentUpdate', nextProps, nextState)
+        return nextProps.name.trim() !== this.props.name.trim();
     }
 
-    componentWillUpdate(nextProps, nextState){
-
+    componentWillUpdate(nextProps, nextState) {
+        console.log('Car componentWillUpdate', nextProps, nextState)
     }
+
+    // static getDerivedStateFromProps(nextProps, prevState) {
+    //    console.log('Car getDerivedStateFromProps', nextProps, prevState)
+    //
+    //     return prevState
+    //
+    // }
 
     componentDidUpdate() {
-
+        console.log('Car componentDidUpdate')
     }
 
+    // getSnapshotBeforeUpdate() {
+    //   console.log('Car getSnapshotBeforeUpdate ')
+    // }
+
+    componentWillUnmount() {
+       console.log('Car componentWillUnmount')
+    }
+
+
     render() {
-       const inputClasses = ['classes.input']
+        console.log('Car render')
+
+        // if (Math.random() > 0.7) {
+        //       throw new Error('Car random failed')
+        //   }
+       const inputClasses = ['input']
 
        if (this.props.name !== '') {
-           inputClasses.push('classes.green')
+           inputClasses.push('green')
        } else {
-           inputClasses.push('classes.red')
+           inputClasses.push('red')
        }
 
        if (this.props.name.length > 4) {
-           inputClasses.push('classes.bold')
+           inputClasses.push('bold')
        }
 
        const style = {
@@ -59,7 +81,7 @@ class Car extends React.Component {
    }
 }
 
-export default Radium (Car);
+export default  Car;
 
 // Indside of the {} we can use functions or Methods JS if we want to have
 // something dynamic
