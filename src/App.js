@@ -84,9 +84,14 @@ class App extends Component {
 
                 <Counter />
 
+                <hr/>
                 <button
+                    style={{margingTop: 20}}
+                    className={'AppButton'}
                     onClick={this.toggleCarsHandler}
                 >Toggle cars</button>
+
+
                 <div style={{
                     width: 400,
                     margin: 'auto',
